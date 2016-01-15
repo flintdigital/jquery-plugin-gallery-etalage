@@ -1,0 +1,22 @@
+/*
+ * This CSS is only used for the demo pages.
+ */
+
+body{ background:#f6f6ef url(images/demo_bg.jpg); font:15px Ubuntu,'Segoe UI',Calibri,Verdana,sans-serif; line-height:22px; color:#444; width:920px; margin:0 auto; text-shadow:0 0 1px #f7f7f7; position:relative; padding:44px 0 70px }
+h1{ font:100 italic 58px Georgia,'Segoe UI',sans-serif; margin:0 0 5px; color:#555 }
+h2{ font:26px Ubuntu,'Segoe UI',sans-serif; margin:32px 0; line-height:22px; color:#555 }
+h2.closer{ margin-bottom:10px }
+a{ color:#d41d1d }
+hr{ border:0; margin:0; padding:0; color:#f6f6ef; clear:both; border-bottom:1px dashed #999; margin-bottom:50px }
+#examples{ position:absolute; left:0; width:300px; overflow:visible }
+#description{ overflow:hidden; margin-left:350px }
+.code{ font:14px monospace; background:#333; color:#ddd; padding:15px 20px; text-shadow:0 0 1px #000 }
+.tab{ margin-left:30px }
+.comment{ color:#f5dd72; font-style:italic }
+.class{ color:#61e12e }
+.list{ margin:35px 0 45px; border-collapse:collapse }
+.list th{ font-style:italic; font-weight:normal; text-align:left }
+.list td{ vertical-align:top; padding:3px 20px 3px 6px; border:1px solid #ccc; background:#f6f6ef }
+.list .option{ font-weight:bold }
+.list .default{ padding-right:0 }
+.list tr:hover td{ background:#fff }

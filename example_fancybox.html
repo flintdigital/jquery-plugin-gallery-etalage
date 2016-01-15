@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Etalage - Fancybox example</title>
+
+		<!-- Include the Etalage CSS -->
+		<link rel="stylesheet" href="css/etalage.css" />
+
+		<!-- Include the Fancybox CSS -->
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css">
+
+		<!-- Include jQuery: -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+		<!-- Include the Etalage plugin: -->
+		<script src="js/jquery.etalage.min.js"></script>
+
+		<!-- Include the Fancybox plugin: -->
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.pack.min.js"></script>
+
+		<!-- Invoke the Etalage plugin -->
+		<script>
+			$(document).ready(function(){
+
+				// Initiate Etalage
+				$('#etalage').etalage({
+					// Invoke the Fancybox plugin when an image is clicked
+					click_callback: function(image_anchor, instance_id){
+						$.fancybox({
+							href: image_anchor
+						});
+					}
+				});
+
+			});
+		</script>
+		<style>
+			body{ margin: 50px; }
+			#etalage{ margin-right: 50px; }
+		</style>
+	</head>
+	<body>
+
+		<ul id="etalage">
+			<li>
+				<!-- Put the lightbox destination for this frame in the anchor tag -->
+				<a href="demo_files/images/image2_large.jpg">
+					<img class="etalage_thumb_image" src="demo_files/images/image2_thumb.jpg" />
+					<img class="etalage_source_image" src="demo_files/images/image2_large.jpg" title="Now click for fancybox." />
+				</a>
+			</li>
+		</ul>
+
+		<a href="instructions.html">Back to instructions</a>
+		<br><br>
+		The "click" callback function is used to trigger fancybox to open the image supplied in the anchor's href.
+		<br><br>
+		<a href="example_fancybox-nozoom.html">Fancybox without zoom example</a>
+		<br><br><br><br>
+		<em>
+			Fancybox is not related to Frique/Etalage in any way and is merely included to demonstrate the optional cooperation with Etalage.<br>
+			Commercial use will need a Fancybox license.
+			<br><br>
+			Home of the Fancybox plugin: <a href="http://fancyapps.com/fancybox/" target="_blank">http://fancyapps.com/fancybox/</a>
+		</em>
+
+	</body>
+</html>

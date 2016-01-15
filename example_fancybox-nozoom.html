@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Etalage - Fancybox without zoom example</title>
+
+		<link rel="stylesheet" href="css/etalage.css" />
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+		<script src="js/jquery.etalage.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.pack.min.js"></script>
+
+		<!-- Invoke the Etalage plugin -->
+		<script>
+			$(document).ready(function(){
+				$('#etalage').etalage({
+					zoom_element: '#zoom',
+					magnifier_opacity: 1
+				});
+			});
+
+			// Invoke the Fancybox plugin when an image is clicked
+			function etalage_click_callback(image_anchor, instance_id){
+				$.fancybox({
+					href: image_anchor
+				});
+			}
+		</script>
+		<style>
+			body{ margin: 50px; }
+			#etalage{ margin-right: 50px; }
+
+			#etalage .etalage_magnifier{
+				background: none;
+				border: 0;
+				cursor: pointer;
+			}
+			#hidden{
+				display:none;
+			}
+		</style>
+	</head>
+	<body>
+
+		<ul id="etalage">
+			<li>
+				<!-- Put the lightbox destination for this frame in the anchor tag -->
+				<a href="demo_files/images/image2_large.jpg">
+					<img class="etalage_thumb_image" src="demo_files/images/image2_thumb.jpg">
+					<img class="etalage_source_image" src="demo_files/images/image2_large.jpg">
+				</a>
+			</li>
+			<li>
+				<!-- Put the lightbox destination for this frame in the anchor tag -->
+				<a href="demo_files/images/image3_large.jpg">
+					<img class="etalage_thumb_image" src="demo_files/images/image3_thumb.jpg">
+					<img class="etalage_source_image" src="demo_files/images/image3_large.jpg">
+				</a>
+			</li>
+		</ul>
+
+		<div id="hidden"><div id="zoom"></div></div>
+
+		<a href="instructions.html">Back to instructions</a>
+		<br><br>
+		This example skips the default zooming functionality to only function as a lightbox trigger.<br>
+		Also the magnifier is made invisible by setting the opacity to 1 and hiding its background color and borders.
+		<br><br>
+		<a href="example_fancybox.html">Regular Fancybox example</a>
+		<br><br><br><br>
+		<em>
+			Fancybox is not related to Frique/Etalage in any way and is merely included to demonstrate the optional cooperation with Etalage.<br>
+			Commercial use will need a Fancybox license.
+			<br><br>
+			Home of the Fancybox plugin: <a href="http://fancyapps.com/fancybox/" target="_blank">http://fancyapps.com/fancybox/</a>
+		</em>
+
+	</body>
+</html>

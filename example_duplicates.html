@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Etalage - Duplicates example</title>
+		<link rel="stylesheet" href="demo_files/example_duplicates.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+		<script src="js/jquery.etalage.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('.etalage').etalage({
+					thumb_image_width: 150,
+					thumb_image_height: 200
+				});
+			});
+		</script>
+		<style>
+			body{
+				margin: 50px;
+			}
+			.etalage{
+				margin-right: 50px;
+				margin-bottom: 20px;
+				clear: both;
+			}
+		</style>
+	</head>
+	<body>
+
+		<ul class="etalage">
+			<li>
+				<img class="etalage_thumb_image" src="demo_files/images/image1_thumb.jpg">
+				<img class="etalage_source_image" src="demo_files/images/image1_large.jpg">
+			</li>
+		</ul>
+
+		<a href="instructions.html">Back to instructions</a>
+		<br><br>
+		Example for initializing multiple Etalage instances with duplicate setups.<br>
+		They are seperate image lists with the same class, and Etalage is called on that class once so they share the same settings / styling.
+
+		<ul class="etalage">
+			<li>
+				<img class="etalage_thumb_image" src="demo_files/images/image2_thumb.jpg">
+				<img class="etalage_source_image" src="demo_files/images/image2_large.jpg">
+			</li>
+		</ul>
+
+		<ul class="etalage">
+			<li>
+				<img class="etalage_thumb_image" src="demo_files/images/image3_thumb.jpg">
+				<img class="etalage_source_image" src="demo_files/images/image3_large.jpg">
+			</li>
+			<li>
+				<img class="etalage_thumb_image" src="demo_files/images/image4_thumb.jpg">
+				<img class="etalage_source_image" src="demo_files/images/image4_large.jpg">
+			</li>
+			<li>
+				<img class="etalage_thumb_image" src="demo_files/images/image1_thumb.jpg">
+				<img class="etalage_source_image" src="demo_files/images/image1_large.jpg">
+			</li>
+		</ul>
+
+	</body>
+</html>

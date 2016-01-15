@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Etalage demo</title>
+		<link rel="stylesheet" href="demo_files/demo.css">
+
+		<!--
+		NOTE: For copying source code, see example_basic.html
+		-->
+
+		<!-- Include the Etalage CSS -->
+		<link rel="stylesheet" href="css/etalage.css">
+		<link rel="stylesheet" href="demo_files/example2.css">
+		<link rel="stylesheet" href="demo_files/example3.css">
+
+		<!-- Include jQuery: -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+		<!-- Include the Etalage plugin: -->
+		<script src="js/jquery.etalage.min.js"></script>
+
+		<!-- Invoke the Etalage plugin -->
+		<script>
+			jQuery(document).ready(function($){
+
+				$('#etalage').etalage({
+					thumb_image_width: 300,
+					thumb_image_height: 400,
+					source_image_width: 900,
+					source_image_height: 1200,
+					show_hint: true,
+					click_callback: function(image_anchor, instance_id){
+						alert('Callback example:\nYou clicked on an image with the anchor: "'+image_anchor+'"\n(in Etalage instance: "'+instance_id+'")');
+					}
+				});
+
+				$('#example2').etalage({
+					thumb_image_width: 312,
+					thumb_image_height: 234,
+					source_image_width: 900,
+					source_image_height: 675,
+					zoom_area_height: 500,
+					magnifier_invert: false,
+					hide_cursor: true,
+					icon_offset: 15,
+					speed: 400
+				});
+
+				$('#example3').etalage({
+					thumb_image_width: 250,
+					thumb_image_height: 250,
+					source_image_width: 900,
+					source_image_height: 900,
+					zoom_area_width: 500,
+					zoom_area_height: 500,
+					zoom_area_distance: 5,
+					small_thumbs: 4,
+					smallthumb_inactive_opacity: 0.3,
+					smallthumbs_position: 'left',
+					show_icon: false,
+					autoplay: false,
+					keyboard: false,
+					zoom_easing: false
+				});
+
+				// This is for the dropdown list example:
+				$('.dropdownlist').change(function(){
+					etalage_show( $(this).find('option:selected').attr('class') );
+				});
+
+			});
+		</script>
+	</head>
+	<body>
+
+		<a href="instructions.html">View instructions</a>
+		<h1>Etalage demonstration</h1>
+		<hr>
+
+		<div id="examples">
+
+			<ul id="etalage">
+				<li>
+					<a href="optionallink.html">
+						<img class="etalage_thumb_image" src="demo_files/images/image1_thumb.jpg" />
+						<img class="etalage_source_image" src="demo_files/images/image1_large.jpg" title="This is an optional description." />
+					</a>
+				</li>
+				<li>
+					<img class="etalage_thumb_image" src="demo_files/images/image2_thumb.jpg" />
+					<img class="etalage_source_image" src="demo_files/images/image2_large.jpg" title="This text area can also be setup to appear at the top of the image.<br>This second line shows that the description can be longer." />
+				</li>
+				<li>
+					<img class="etalage_thumb_image" src="demo_files/images/image3_thumb.jpg" />
+					<img class="etalage_source_image" src="demo_files/images/image3_large.jpg" />
+				</li>
+				<li>
+					<img class="etalage_thumb_image" src="demo_files/images/image4_thumb.jpg" />
+					<img class="etalage_source_image" src="demo_files/images/image4_large.jpg" />
+				</li>
+			</ul>
+
+			<hr>
+
+			<h2 id="ex2" class="closer">Example 2</h2>
+			Single image, different size, different styling, different magnifier type, different zoom icon.
+
+			<ul id="example2">
+				<li>
+					<img class="etalage_thumb_image" src="demo_files/images/image5_thumb.jpg" />
+					<img class="etalage_source_image" src="demo_files/images/image5_large.jpg" />
+				</li>
+			</ul>
+
+			<hr>
+
+			<h2 id="ex3" class="closer">Example 3</h2>
+			Small thumbnails on the left, different styling, different zoom frame size, more visible small thumbnails, high detail image examples, no autoplay, no zoom icon, no hint, no easing.
+
+			<ul id="example3">
+				<li>
+					<img class="etalage_thumb_image" src="demo_files/images/image6_thumb.jpg" />
+					<img class="etalage_source_image" src="demo_files/images/image6_large.jpg" />
+				</li>
+				<li>
+					<img class="etalage_thumb_image" src="demo_files/images/image7_thumb.jpg" />
+					<img class="etalage_source_image" src="demo_files/images/image7_large.jpg" />
+				</li>
+				<li>
+					<img class="etalage_thumb_image" src="demo_files/images/image8_thumb.jpg" />
+					<img class="etalage_source_image" src="demo_files/images/image8_large.jpg" />
+				</li>
+				<li>
+					<img class="etalage_thumb_image" src="demo_files/images/image9_thumb.jpg" />
+					<img class="etalage_source_image" src="demo_files/images/image9_large.jpg" />
+				</li>
+				<li>
+					<img class="etalage_thumb_image" src="demo_files/images/image10_thumb.jpg" />
+					<img class="etalage_source_image" src="demo_files/images/image10_large.jpg" />
+				</li>
+			</ul>
+
+		</div>
+
+		<div id="description">
+
+			Etalage is a ready to use jQuery image zooming plugin to present your images in the highest detail without leaving the page.
+			<br><br>
+			Simply link to the JavaScript and CSS files and apply it to your HTML element like other jQuery plugins. Customize the settings and CSS to match your style and purpose.<br>
+			Full documentation and examples are included.
+			<br><br>
+			<a href="#etalage">Example 1</a>: Some basic styling applied, all default plugin options.<br>
+			<a href="#ex2">Example 2</a>: Single image, different size, different styling, different magnifier type, different zoom icon.<br>
+			<a href="#ex3">Example 3</a>: Small thumbnails on the left, different styling, different zoom frame size, more visible small thumbnails, high detail image examples, no autoplay, no zoom icon, no hint, no easing.
+
+			<br><br>
+			<i>External controls for example 1:</i><br>
+			<button onclick="etalage_previous()">Previous image</button>
+			<button onclick="etalage_next()">Next image</button>
+			<button onclick="etalage_show(1)">Show image 1</button>
+			<button onclick="etalage_show(4)">Show image 4</button>
+			<select class="dropdownlist">
+				<option class="1">Size S</option>
+				<option class="2">Size M</option>
+				<option class="3">Size L</option>
+				<option class="4">Pink</option>
+			</select>
+
+			<h2>Features</h2>
+			<ul>
+				<li>Customizable by CSS and plugin options</li>
+				<li>Precise positioning of all elements based on your image dimensions and CSS</li>
+				<li>The small thumbnails are automatically generated, sized and positioned</li>
+				<li>Low resolution preview (enlarged thumbnail) while downloading the zoomed image (except in IE)</li>
+				<li>Optional easing of the zoomed image movements</li>
+				<li>Optional autoplay</li>
+				<li>Optional descriptions/captions</li>
+				<li>Unlimited number of images</li>
+				<li>Align Etalage left/right, with the zoom area on the opposite side</li>
+				<li>Small thumbnails can be positioned below or on the left/right (vertically)</li>
+				<li>Multiple instances per page possible</li>
+				<li>Right-to-left language support</li>
+				<li>Optional external controls for previous/next/specific image</li>
+				<li>Advanced: customizable callback functions</li>
+				<li>Works in all common browsers (and IE6)</li>
+				<li>Includes documentation and commented source files</li>
+				<li>Includes an "absolute basic" and 6 more example files to get you started</li>
+			</ul>
+
+			<h2>Plugin options</h2>
+			<ul>
+				<li>The large thumbnail width/height</li>
+				<li>The zoomed image frame width/height</li>
+				<li>The amount of small thumbnails visible at a time</li>
+				<li>The position of the small thumbnails relative to the large thumbnail</li>
+				<li>Animation speeds</li>
+				<li>Autoplay on/off</li>
+				<li>Autoplay interval time</li>
+				<li>Animation easing on/off</li>
+				<li>Hint image on/off</li>
+				<li>Zoom icon on/off</li>
+				<li>Keyboard functionality on/off</li>
+				<li>Hover or click to zoom</li>
+				<li>
+					2 Magnifier types (the area around the cursor while zooming)<br>
+					And more
+				</li>
+			</ul>
+
+			<h2>Requirements</h2>
+			<ul>
+				<li>jQuery version 1.4+ (also works with jquery 2.0+)</li>
+			</ul>
+
+			<h2>Implementation</h2>
+			<ol>
+				<li>Include the jQuery library</li>
+				<li>Include the CSS file and optionally customize it with your own styling</li>
+				<li>Include the plugin JavaScript file</li>
+				<li>Provide your HTML list of images (see example below)</li>
+				<li>Invoke the plugin on your list and optionally change the settings to your liking of functionality</li>
+			</ol>
+
+			<h2>Analysis of HTML list</h2>
+			<div class="code">
+				<span class="comment">&lt;!-- Give it any <b>id</b> or <b>class</b> to identify it with: --&gt;</span><br>
+				&lt;ul id="<span class="class">etalage</span>"&gt;
+					<div class="tab">
+						&lt;li&gt;
+							<div class="tab">
+								<span class="comment">&lt;!-- This is the large (zoomed) image source: --&gt;</span><br>
+								&lt;img class="<span class="class">etalage_source_image</span>" src="<span class="class">/images/large_image_1.jpg</span>"<br>
+								title="<span class="class">Optionally, your description goes here.</span>" /&gt;
+								<br><br>
+								<span class="comment">&lt;!-- This is the thumb image source (if not provided, it will use the large image source and resize it): --&gt;</span><br>
+								&lt;img class="<span class="class">etalage_thumb_image</span>" src="<span class="class">/images/thumb_image_1.png</span>" /&gt;
+							</div>
+						&lt;/li&gt;
+					</div>
+				&lt;/ul&gt;
+			</div>
+			<br>
+			More detailed documentation is included, along with the commented source files.
+
+			<h2>New in version 1.3.4 (jun 2013)</h2>
+			<ul>
+				<li>New plugin option: show_begin_end_smallthumb (Whether to show extra thumbnails at the beginning and the end that navigate back to the end or beginning)</li>
+				<li>Fancybox example pages updated to support version 2+ of that plugin.</li>
+				<li>Minor performance improvements</li>
+			</ul>
+
+			<h2>New in version 1.3.3 (feb 2013)</h2>
+			<ul>
+				<li>Option "smallthumbs_position" can now also be set to <i>top</i></li>
+				<li>Option "show_hint" is now <i>false</i> by default</li>
+				<li>Added fix for unwanted wrapping small-thumb row usually caused by zoomed-in browsers</li>
+				<li>Bug fixed for when right-aligned small-thumbs didn't scroll in Firefox</li>
+				<li>New example page: "Aligning" with samples of left/top/right aligning of small-thumbs</li>
+				<li>New example page: "External controls" to demonstrate how to fire Etalage actions from other elements</li>
+				<li>Minor performance improvements</li>
+			</ul>
+
+			<h2>New in version 1.3.2 (4 september 2012)</h2>
+			<ul>
+				<li>Optimized for jQuery 1.8+ (deprecated 'hover' event, deprecated $.browser method, deprecated 'load' event)</li>
+				<li>.etalage() now returns the jquery object, so you can continue chaining<br>Example: $('#etalage').etalage().whatever();</li>
+				<li>Added support for Twitter Bootstrap (it messed with the Etalage CSS)</li>
+				<li>
+					Moved callback functions to the plugin options object. Old method still works though. Example:
+					<br><br>
+					<div class="code">
+						$('#etalage').etalage({
+							<div class="tab">
+								click_callback(){ alert('omg'); },<br>
+								change_callback(){ alert('it moved'); }
+							</div>
+						});
+					</div>
+				</li>
+			</ul>
+
+			<h2>New in version 1.3.1 (5 july 2012)</h2>
+			<ul>
+				<li>Bug fix: When initializing multiple instances by class, the zoom area size differed.</li>
+				<li>Added right-to-left language support.</li>
+				<li>Added right-to-left example.</li>
+				<li>Added Fancybox without using Etalage's zoom area example.</li>
+				<li>Added duplicate setups example.</li>
+				<li>Slight performance improvements.</li>
+			</ul>
+
+			<h2>New in version 1.3 (6 march 2012):</h2>
+			<ul>
+				<li>Bug fix: Adding links to images now works properly</li>
+				<li>Bug fix: The loading image would sometimes keep showing when using a single image</li>
+				<li>New plugin option: smallthumb_select_on_hover (scroll through the small thumbnails when hovering them, instead of clicking them)</li>
+				<li>New plugin option: zoom_element (ability to supply your own element as a zoom area)</li>
+				<li>New plugin option: zoom_area_distance (was previously a CSS setting)</li>
+				<li>New plugin option: hint_offset (was previously a CSS setting)</li>
+				<li>New plugin option: icon_offset (was previously a CSS setting)</li>
+				<li>New callback function: etalage_change_callback(image_number, instance_id), where image_number is the new active image</li>
+				<li>Added an example of using Etalage with Fancybox</li>
+				<li>Added an example of using callback functions</li>
+				<li>Added an example of using a custom zoom area element</li>
+				<li>Minor performance improvements and removal of depricated jquery functions</li>
+			</ul>
+
+			<h2>New in version 1.2.1 (4 september 2011):</h2>
+			<ul>
+				<li>Fixed a bug with external controls when there were no small thumbnails out of range</li>
+			</ul>
+
+			<h2>New in version 1.2 (23 july 2011):</h2>
+			<ul>
+				<li>Even more precise zoom image positioning.</li>
+				<li>Bug fixed where the description box would be stretched when positioned at the top.</li>
+				<li>Click callback function (Good for lightboxes or anything you want to happen on click).</li>
+				<li>Added plugin option "click_to_zoom". When enabled, clicking the large thumbnail will initiate zooming (instead of hovering it). This does not go together with click-callback functions.</li>
+				<li>Added plugin option "smallthumbs_position". The small thumbnails can now be positioned on the left or right of the large thumbnail (vertically).</li>
+				<li>Added plugin option "align". The Etalage container can now be aligned to the right, with the zoom area on the left.</li>
+				<li>External functions for switching previous/next/to a specific image number.</li>
+			</ul>
+			Note: You should also use the new CSS for this update if you are upgrading from a previous version (at least copy the "functional" section at the bottom; the personal styling section remains the same).
+
+			<h2>New in version 1.1 (24 april 2011):</h2>
+			<ul>
+				<li>Added an optional description area overlaying the zoomed image. Pass the description text through the title attribute of the source image:
+				<div class="code">&lt;img class="<span class="class">etalage_source_image</span>" src="" title="<span class="class">Put description here.</span>" /&gt;</div></li>
+				<li>Keyboard support (optional) (left/right arrow key will navigate to the previous/next image).</li>
+				<li>Bug in the zoom_easing plugin option fixed.</li>
+				<li>Various slight improvements</li>
+			</ul>
+			To update from the previous version; replace the "functionality" part and add the "Description area" section from the new CSS.
+
+			<h2>Credits</h2>
+			<ul>
+				<li>Coding by <a href="http://www.frique.me/" target="_blank">Frique</a></li>
+				<li>Supporting artwork by <a href="http://www.frique.me/" target="_blank">Frique</a></li>
+				<li>Photography by <a href="http://www.frique.me/" target="_blank">Frique</a></li>
+				<li>Loading gif from <a href="http://ajaxload.info/" target="_blank">http://ajaxload.info/</a></li>
+				<li>Background pattern for the demo pages from <a href="http://pattern8.com/" target="_blank">http://pattern8.com/</a></li>
+				<li>Etalage is exclusively available at <a href="http://codecanyon.net/item/etalage/180719?ref=Frique" target="_blank">CodeCanyon</a></li>
+			</ul>
+
+		</div>
+		
+	</body>
+</html>

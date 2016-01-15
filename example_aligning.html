@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Etalage - Aligning</title>
+		<link rel="stylesheet" href="css/etalage.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+		<script src="js/jquery.etalage.min.js"></script>
+		<script>
+			$(document).ready(function(){
+
+				$('#etalage').etalage({
+					smallthumbs_position: 'top'
+				});
+
+				$('#example2').etalage({
+					align: 'right',
+					smallthumbs_position: 'right'
+				});
+
+				$('#example3').etalage({
+					smallthumbs_position: 'left'
+				});
+
+			});
+		</script>
+		<style>
+			body{
+				margin: 50px;
+			}
+			#etalage{
+				margin-right: 50px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<a href="instructions.html">Back to instructions</a>
+		<br><br>
+		Some examples of differently aligned small-thumbs and one right-aligned Etalage instance (it floats to the right instead of left).
+		<br><br>
+
+		<ul id="etalage">
+			<li>
+				<img class="etalage_thumb_image" src="demo_files/images/image1_thumb.jpg">
+				<img class="etalage_source_image" src="demo_files/images/image1_large.jpg">
+			</li>
+			<li>
+				<img class="etalage_thumb_image" src="demo_files/images/image2_thumb.jpg">
+				<img class="etalage_source_image" src="demo_files/images/image2_large.jpg">
+			</li>
+			<li>
+				<img class="etalage_thumb_image" src="demo_files/images/image3_thumb.jpg">
+				<img class="etalage_source_image" src="demo_files/images/image3_large.jpg">
+			</li>
+			<li>
+				<img class="etalage_thumb_image" src="demo_files/images/image3_thumb.jpg">
+				<img class="etalage_source_image" src="demo_files/images/image3_large.jpg">
+			</li>
+		</ul>
+
+		<ul id="example2">
+			<li>
+				<img class="etalage_thumb_image" src="demo_files/images/image1_thumb.jpg">
+				<img class="etalage_source_image" src="demo_files/images/image1_large.jpg">
+			</li>
+			<li>
+				<img class="etalage_thumb_image" src="demo_files/images/image2_thumb.jpg">
+				<img class="etalage_source_image" src="demo_files/images/image2_large.jpg">
+			</li>
+			<li>
+				<img class="etalage_thumb_image" src="demo_files/images/image3_thumb.jpg">
+				<img class="etalage_source_image" src="demo_files/images/image3_large.jpg">
+			</li>
+			<li>
+				<img class="etalage_thumb_image" src="demo_files/images/image3_thumb.jpg">
+				<img class="etalage_source_image" src="demo_files/images/image3_large.jpg">
+			</li>
+		</ul>
+
+		<ul id="example3">
+			<li>
+				<img class="etalage_thumb_image" src="demo_files/images/image1_thumb.jpg">
+				<img class="etalage_source_image" src="demo_files/images/image1_large.jpg">
+			</li>
+			<li>
+				<img class="etalage_thumb_image" src="demo_files/images/image2_thumb.jpg">
+				<img class="etalage_source_image" src="demo_files/images/image2_large.jpg">
+			</li>
+			<li>
+				<img class="etalage_thumb_image" src="demo_files/images/image3_thumb.jpg">
+				<img class="etalage_source_image" src="demo_files/images/image3_large.jpg">
+			</li>
+			<li>
+				<img class="etalage_thumb_image" src="demo_files/images/image3_thumb.jpg">
+				<img class="etalage_source_image" src="demo_files/images/image3_large.jpg">
+			</li>
+		</ul>
+
+	</body>
+</html>

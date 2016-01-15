@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Etalage instructions</title>
+		<link rel="stylesheet" href="demo_files/demo.css">
+	</head>
+	<body>
+
+		<a href="index.html">View demo</a>
+		<h1>Etalage instructions</h1>
+		<hr>
+
+		<ol>
+			<li><a href="#example_pages">Example pages</a></li>
+			<li><a href="#include_css">Including the CSS</a></li>
+			<li><a href="#include_jquery">Including jQuery</a></li>
+			<li><a href="#include_plugin">Including the plugin</a></li>
+			<li><a href="#apply_plugin">Applying the plugin</a></li>
+			<li><a href="#head_setup"><b>Head tag setup example</b></a></li>
+			<li><a href="#plugin_options"><b>Plugin options</b></a></li>
+			<li><a href="#html"><b>HTML setup</b></a></li>
+			<li><a href="#customizing_css">Customizing the CSS</a></li>
+			<li><a href="#callbacks">Advanced: Callback functions</a></li>
+			<li><a href="#troubleshooting">Troubleshooting</a></li>
+		</ol>
+
+		<h2 id="example_pages">Example pages</h2>
+		View the source of these samples to quickly learn/copy/experiment with the ways of including Etalage on your page.
+		<ul>
+			<li><a href="example_basic.html">Absolute basic usage</a></li>
+			<li><a href="example_custom-zoom-element.html">Using a custom element as zoom area</a></li>
+			<li><a href="example_callback.html">Using callback functions</a></li>
+			<li><a href="example_rtl.html">Right-to-left language support</a></li>
+			<li><a href="example_fancybox.html">Using Etalage with Fancybox</a></li>
+			<li><a href="example_fancybox-nozoom.html">Fancybox links without Etalage's default zooming area</a></li>
+			<li><a href="example_duplicates.html">Initializing multiple instances with duplicate setups</a></li>
+			<li><a href="example_aligning.html">Aligning</a></li>
+			<li><a href="example_externalcontrols.html">External controls</a></li>
+		</ul>
+
+		<h2 id="include_css">Including the CSS</h2>
+		The css file consists of both styling and functionality sections. It is required to make Etalage function.<br>
+		Include it in the head tag before including the javascript. Example below.
+
+		<h2 id="include_jquery">Including jQuery</h2>
+		Include an instance of jQuery. It is required to make Etalage function.<br>
+		Include it in the head tag before including the plugin javascript. Example below.
+
+		<h2 id="include_plugin">Including the plugin</h2>
+		Include either the minified version, or source version if you are editing it manually.<br>
+		Include it in the head tag after including the css and jquery. Example below.
+
+		<h2 id="apply_plugin">Applying the plugin</h2>
+		Here you point out which element (html list) to apply the plugin to. Optionally provide plugin options.<br>
+		See <a href="#plugin_options">Plugin options</a> for an example and full options list.
+
+		<h2 id="head_setup">Head tag setup example</h2>
+		<div class="code">
+			&lt;head&gt;
+				<div class="tab">
+					&lt;title&gt;My first Etalage&lt;/title&gt;
+					<br><br>
+					<span class="comment">&lt;!-- Include the Etalage CSS: --&gt;</span><br>
+					&lt;link type="text/css" rel="stylesheet" href="<span class="class">css/etalage.css</span>" /&gt;
+					<br><br>
+					<span class="comment">&lt;!-- Include jQuery: --&gt;</span><br>
+					&lt;script type="text/javascript" src="<span class="class">http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js</span>"&gt;&lt;/script&gt;
+					<br><br>
+					<span class="comment">&lt;!-- Include the Etalage plugin: --&gt;</span><br>
+					&lt;script type="text/javascript" src="<span class="class">js/jquery.etalage.min.js</span>"&gt;&lt;/script&gt;
+					<br><br>
+					<span class="comment">&lt;!-- Applying the plugin when the document is ready: --&gt;</span><br>
+					&lt;script type="text/javascript"&gt;
+					<div class="tab">
+						$(document).ready(function(){
+							<div class="tab">
+								<span class="comment">// If your &lt;ul&gt; has the id "etalage":</span><br>
+								$('<span class="class">#etalage</span>').etalage();
+							</div>
+						});
+					</div>
+				&lt;/script&gt;
+				</div>
+			&lt;/head&gt;
+		</div>
+
+		<h2 id="plugin_options">Plugin options</h2>
+		When you apply the plugin to your images, you can provide settings to your liking.<br>
+		Example of applying Etalage with custom settings:
+		<br><br>
+
+		<div class="code">
+			&lt;script type="text/javascript"&gt;
+				<div class="tab">
+					$(document).ready(function(){
+						<div class="tab">
+							<br>
+							<span class="comment">// If your &lt;ul&gt; has the id "etalage":</span><br>
+							$('<span class="class">#etalage</span>').etalage({
+								<div class="tab">
+									<span class="comment">// These are the most common settings (because they are case specific)</span><br>
+									thumb_image_width: 300,<br>
+									thumb_image_height: 400,<br>
+									source_image_width: 1200,<br>
+									source_image_height: 1600,<br>
+									zoom_area_width: 800<br>
+									<span class="comment">// Note: the last option does not end with a comma</span><br>
+								</div>
+							});
+							<br><br>
+						</div>
+					});
+				</div>
+			&lt;/script&gt;
+		</div>
+
+		<table class="list">
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Default</th>
+			</tr>
+			<tr>
+				<td class="option">align</td>
+				<td>Align of the Etalage container. The zoom area will appear on the opposite side ('left'/'right')</td>
+				<td class="default">'left'</td>
+			</tr>
+			<tr>
+				<td class="option">thumb_image_width</td>
+				<td>The large thumbnail width (excluding borders / padding) (value in pixels)</td>
+				<td class="default">300</td>
+			</tr>
+			<tr>
+				<td class="option">thumb_image_height</td>
+				<td>The large thumbnail height (excluding borders / padding) (value in pixels)</td>
+				<td class="default">400</td>
+			</tr>
+			<tr>
+				<td class="option">source_image_width</td>
+				<td>The source/zoomed image width (not the frame around it) (value in pixels)</td>
+				<td class="default">900</td>
+			</tr>
+			<tr>
+				<td class="option">source_image_height</td>
+				<td>The source/zoomed image height (not the frame around it) (value in pixels)</td>
+				<td class="default">1200</td>
+			</tr>
+			<tr>
+				<td class="option">zoom_area_width</td>
+				<td>Width of the zoomed image frame (including borders, padding) (value in pixels)</td>
+				<td class="default">600</td>
+			</tr>
+			<tr>
+				<td class="option">zoom_area_height</td>
+				<td>Height of the zoomed image frame (including borders, padding)<br>(value in pixels / 'justify' = automatic (height of large thumb + small thumbs))</td>
+				<td class="default">'justify'</td>
+			</tr>
+			<tr>
+				<td class="option">zoom_area_distance</td>
+				<td>Distance between the zoom area and thumbnail (value in pixels)</td>
+				<td class="default">10</td>
+			</tr>
+			<tr>
+				<td class="option">zoom_easing</td>
+				<td>Ease the animation while moving the zoomed image (true/false)</td>
+				<td class="default">true</td>
+			</tr>
+			<tr>
+				<td class="option">click_to_zoom</td>
+				<td>Will start zooming when image is clicked instead of when hovering (when true, click-callback functions are disabled) (true/false)</td>
+				<td class="default">false</td>
+			</tr>
+			<tr>
+				<td class="option">zoom_element</td>
+				<td>Supply your custom zoom area element as a CSS type selector ('auto'/'#selector'/'.selector'). This allows for more freedom in positioning the zoom area outside of the Etalage container. To change the dimensions, set the "zoom_area_width" and "zoom_area_height" options to their pixel values.</td>
+				<td class="default">'auto'</td>
+			</tr>
+			<tr>
+				<td class="option">show_descriptions</td>
+				<td>Shows the description area if a title attribute is given to the source image (true/false)</td>
+				<td class="default">true</td>
+			</tr>
+			<tr>
+				<td class="option">description_location</td>
+				<td>Location of the description area ('top'/'bottom')</td>
+				<td class="default">'bottom'</td>
+			</tr>
+			<tr>
+				<td class="option">description_opacity</td>
+				<td>Opacity of the description area (except for IE) (number between or equal to 0-1)</td>
+				<td class="default">0.7</td>
+			</tr>
+			<tr>
+				<td class="option">small_thumbs</td>
+				<td>How many small thumbnails will be visible underneath the large thumbnail<br>(minimum of 3) (number)</td>
+				<td class="default">3</td>
+			</tr>
+			<tr>
+				<td class="option">smallthumb_inactive_opacity</td>
+				<td>Opacity of the inactive small thumbnails (number between or equal to 0-1)</td>
+				<td class="default">0.4</td>
+			</tr>
+			<tr>
+				<td class="option">smallthumb_hide_single</td>
+				<td>Don't show the small thumb when there is only 1 image (true/false)</td>
+				<td class="default">true</td>
+			</tr>
+			<tr>
+				<td class="option">smallthumb_select_on_hover</td>
+				<td>This will scroll through the small thumbnails when hovering them, instead of clicking them (true/false)</td>
+				<td class="default">false</td>
+			</tr>
+			<tr>
+				<td class="option">smallthumbs_position</td>
+				<td>Where to position the row of small thumbnails ('top'/'bottom'/'left'/'right')</td>
+				<td class="default">'bottom'</td>
+			</tr>
+			<tr>
+				<td class="option">show_begin_end_smallthumb</td>
+				<td>
+					Whether to show extra thumbnails at the beginning and the end that navigate back to the end or beginning (true/false)
+				</td>
+				<td class="default">true</td>
+			</tr>
+			<tr>
+				<td class="option">magnifier_opacity</td>
+				<td>Opacity of the magnifier area (does not apply if magnifier_invert is true)<br>(number between or equal to 0-1)</td>
+				<td class="default">0.5</td>
+			</tr>
+			<tr>
+				<td class="option">magnifier_invert</td>
+				<td>Make the large thumbnail clear through the magnifier, opaque around it<br>(opacity is the value of magnifier_opacity) (true/false)</td>
+				<td class="default">true</td>
+			</tr>
+			<tr>
+				<td class="option">show_icon</td>
+				<td>Shows the icon image in the middle of the magnifier (only if magnifier_invert is false) and left-bottom of large thumb (true/false)</td>
+				<td class="default">true</td>
+			</tr>
+			<tr>
+				<td class="option">icon_offset</td>
+				<td>The icon's offset to the left-bottom corner (value in pixels)</td>
+				<td class="default">20</td>
+			</tr>
+			<tr>
+				<td class="option">hide_cursor</td>
+				<td>Hides the cursor when hovering the large thumbnail<br>(only works in some browsers) (true/false)</td>
+				<td class="default">false</td>
+			</tr>
+			<tr>
+				<td class="option">show_hint</td>
+				<td>Show "hint" until image is zoomed for the first time (true/false)</td>
+				<td class="default">false</td>
+			</tr>
+			<tr>
+				<td class="option">hint_offset</td>
+				<td>The hint's offset to the right-top corner (value in pixels)</td>
+				<td class="default">15</td>
+			</tr>
+			<tr>
+				<td class="option">speed</td>
+				<td>All animation speeds are based on this setting (value in ms)</td>
+				<td class="default">600</td>
+			</tr>
+			<tr>
+				<td class="option">autoplay</td>
+				<td>Makes the thumbs switch automatically when not interacting<br>(at each autoplay_interval below) (true/false)</td>
+				<td class="default">true</td>
+			</tr>
+			<tr>
+				<td class="option">autoplay_interval</td>
+				<td>Time showing each image if autoplay is on (value in ms)</td>
+				<td class="default">6000 (6 seconds)</td>
+			</tr>
+			<tr>
+				<td class="option">keyboard</td>
+				<td>Left/right arrow keys to navigate (true/false)</td>
+				<td class="default">true</td>
+			</tr>
+			<tr>
+				<td class="option">right_to_left</td>
+				<td>Makes the thumbnails slide from right to left and the caption texts RTL (true/false)</td>
+				<td class="default">false</td>
+			</tr>
+			<tr>
+				<td class="option">click_callback</td>
+				<td>
+					Provide your own callback for the click event (function). Takes 2 arguments: image_anchor, instance_id. The old callback function method (up to v.1.3.1) is still supported in case you are already using those. Example:
+					<br><br>
+					<div class="code">
+						$('etalage').etalage({
+						<div class="tab">
+							<span class="class">click_callback: function(</span>image_anchor, instance_id<span class="class">){</span>
+							<div class="tab">
+								alert('Callback example:\nYou clicked on an image with the anchor: "'+image_anchor+'"\n(in Etalage instance: "'+instance_id+'")');
+							</div>
+							<span class="class">}</span>
+						</div>
+						});
+					</div>
+				</td>
+				<td class="default">function(){ return true; }</td>
+			</tr>
+			<tr>
+				<td class="option">change_callback</td>
+				<td>
+					Provide your own callback for the change event (thumb switching) (function). Takes 2 arguments: image_number, instance_id. The old callback function method (up to v.1.3.1) is still supported in case you are already using those. Example:
+					<br><br>
+					<div class="code">
+						$('etalage').etalage({
+						<div class="tab">
+							<span class="class">change_callback: function(</span>image_number, instance_id<span class="class">){</span>
+							<div class="tab">
+								alert('Callback example: New active image: '+image_number+' (in Etalage instance: '+instance_id+')');
+							</div>
+							<span class="class">}</span>
+						</div>
+						});
+					</div>
+				</td>
+				<td class="default">function(){ return true; }</td>
+			</tr>
+		</table>
+
+		<h2 id="html">HTML setup</h2>
+		Create a list of images in an Unordered List. One image as the source image, another as the thumbnail. The thumbnail will be a resized source image if not provided (not recommended for beauty and performance).
+		<br><br>
+		Be sure to check out the <a href="#example_pages">example html pages</a> and their source code.
+		<br><br>
+
+		<div class="code">
+			<span class="comment">&lt;!-- Give it any <b>id</b> or <b>class</b> to identify it with: --&gt;</span><br>
+			&lt;ul id="<span class="class">etalage</span>"&gt;
+				<div class="tab">
+					&lt;li&gt;
+						<div class="tab">
+							<span class="comment">&lt;!-- This is the large (zoomed) image source: --&gt;</span><br>
+							&lt;img class="<span class="class">etalage_source_image</span>" src="<span class="class">/images/large_image_1.jpg</span>"
+							title="<span class="class">Optionally, your description goes here.</span>" /&gt;
+							<br><br>
+							<span class="comment">&lt;!-- This is the thumb image source (if not provided, it will use the large image source and resize it): --&gt;</span><br>
+							&lt;img class="<span class="class">etalage_thumb_image</span>" src="<span class="class">/images/thumb_image_1.png</span>" /&gt;
+						</div>
+					&lt;/li&gt;
+				</div>
+			&lt;/ul&gt;
+		</div>
+
+		<h2 id="customizing_css">Customizing the CSS</h2>
+		The css contains comments to guide you through. It is mostly used for setting borders, background colors and padding of the elements, the rest of the setup is done through the plugin settings.
+
+		<h2 id="callbacks">Advanced: Callback functions</h2>
+		Currently there are two callback functions: <b>click_callback</b> (triggered when clicking the large thumbnail (if it has an &lt;a&gt; tag)) & <b>change_callback</b> (triggered when the active image changes).
+		<br><br>
+		To use this optional functionality, you can provide your javascript to the plugin options as functions. They are then automatically triggered at the right time.
+		<br><br>
+		The click-callback function provides 2 arguments: the anchor (href) of the anchor tag and the ID attribute of the Etalage instance. For change-callback it is the new active image number and also the instance ID.
+		<br><br>
+		Example:<br>
+		<div class="code">
+			...
+			<div class="tab">
+				&lt;script&gt;
+				<div class="tab">
+					$(document).ready(function(){
+					<div class="tab">
+						$('#etalage').etalage({
+						<div class="tab">
+							<span class="comment">// This is the optional image-click-callback function:</span><br>
+							<span class="class">click_callback: function(</span>image_anchor, instance_id<span class="class">){</span>
+							<div class="tab">
+								alert('Callback example:\nYou clicked on an image with the anchor: "'+image_anchor+'"\n(in Etalage instance: "'+instance_id+'")');
+							</div>
+							<span class="class">},</span><br>
+
+							<span class="comment">// This is the optional change-callback function:</span><br>
+							<span class="class">change_callback: function(</span>image_number, instance_id<span class="class">){</span>
+							<div class="tab">
+								alert('Callback example: New active image: '+image_number+' (in Etalage instance: '+instance_id+')');
+							</div>
+							<span class="class">}</span>
+						</div>
+						});
+					</div>
+					});
+				</div>
+				&lt;/script&gt;
+			</div>
+			&lt;/head&gt;
+			<br><br>
+			&lt;ul <span class="class">id="etalage"</span>&gt;
+			<div class="tab">
+				&lt;li&gt;
+				<div class="tab">
+					&lt;a <span class="class">href="#abc"</span>&gt;
+					<div class="tab">
+						&lt;img class="etalage_thumb_image" src="/img/thumb_image_1.jpg" /&gt;<br>
+						&lt;img class="etalage_source_image" src="/img/large_image_1.jpg" /&gt;
+					</div>
+					&lt;/a&gt;
+				</div>
+				&lt;/li&gt;
+			</div>
+			...
+		</div>
+		<br>
+		Above example will alert:<br>
+		<div class="code">
+			Callback example:<br>
+			You clicked on an image with the anchor: "#abc"<br>
+			(in Etalage instance: "etalage")
+		</div>
+		<br>
+		Fancybox example:
+		<div class="code">
+			function etalage_click_callback(<span class="class">image_anchor</span>){
+			<div class="tab">
+				<span class="class">$.fancybox({</span>
+					<div class="tab">
+						'href': <span class="class">image_anchor</span>
+					</div>
+				<span class="class">});</span>
+			</div>
+			}
+		</div>
+
+		<h2 id="troubleshooting">Troubleshooting</h2>
+		<b>Difficulty with implementing:</b>
+		<ol>
+			<li>Check out this instructions page</li>
+			<li>Check out the <a href="#example_pages">example pages</a></li>
+		</ol>
+		<b>Can not get it/something to work:</b>
+		<ul>
+			<li>Do the example pages work in your situation? That means something went wrong in your custom implementation. Try comparing them or starting out by modifying one of the sample pages step by step.</li>
+			<li>Look for your issue in the <a href="http://codecanyon.net/item/etalage/faq/180719" target="_blank">Etalage FAQ</a></li>
+			<li>Look for your issue on the <a href="http://codecanyon.net/item/etalage/discussion/180719?page=1" target="_blank">Etalage comments page</a></li>
+			<li><a href="http://codecanyon.net/item/etalage/discussion/180719" target="_blank">Post a comment</a> with your question / request</li>
+			<li>Email the author directly at <a href="mailto:please@frique.me">please@frique.me</a></li>
+		</ul>
+
+	</body>
+</html>

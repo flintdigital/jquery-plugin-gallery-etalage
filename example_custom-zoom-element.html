@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Etalage - Custom zoom element example</title>
+		<link rel="stylesheet" href="css/etalage.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+		<script src="js/jquery.etalage.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('#etalage').etalage({
+					zoom_element: '#custom_zoom_element',
+					// zoom_area_width: 200,
+					// zoom_area_height: 200
+				});
+			});
+		</script>
+		<style>
+			body{
+				margin: 50px;
+			}
+			#etalage{
+				margin-right: 50px;
+			}
+			#custom_zoom_element{
+				position: absolute;
+				top: 165px;
+				left: 340px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<ul id="etalage">
+			<li>
+				<img class="etalage_thumb_image" src="demo_files/images/image3_thumb.jpg">
+				<img class="etalage_source_image" src="demo_files/images/image3_large.jpg">
+			</li>
+		</ul>
+
+		<a href="instructions.html">Back to instructions</a>
+		<br><br>
+		Here, a custom HTML element is supplied to serve as the zoom area.<br>
+		Supply the plugin option "zoom_element" with a CSS type selector.<br>
+		To change the dimensions, set the "zoom_area_width" and "zoom_area_height" options to their pixel values.
+
+		<div id="custom_zoom_element">
+			This is the zoom area element.
+			Note: any content inside this element will disappear.
+		</div>
+
+	</body>
+</html>

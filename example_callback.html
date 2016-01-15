@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Etalage - Callback example</title>
+		<link rel="stylesheet" href="css/etalage.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+		<script src="js/jquery.etalage.min.js"></script>
+		<script>
+			$(document).ready(function(){
+
+				$('#etalage').etalage({
+					change_callback: function(image_number, instance_id){
+						var time = new Date();
+						$('#alert').html(time.getHours()+':'+time.getMinutes()+':'+time.getSeconds()+' - Change callback: The ID of the Etalage instance is "<b>'+instance_id+'</b>" and the newly active image number is "<b>'+image_number+'</b>".');
+					}
+				});
+
+			});
+		</script>
+		<style>
+			body{ margin: 50px; }
+			#etalage{ margin-right: 50px; }
+			#alert{ border: 1px solid #ddd; padding: 10px 15px; margin-top: 10px; overflow: hidden; }
+		</style>
+	</head>
+	<body>
+
+		<ul id="etalage">
+			<li>
+				<img class="etalage_thumb_image" src="demo_files/images/image4_thumb.jpg">
+				<img class="etalage_source_image" src="demo_files/images/image4_large.jpg">
+			</li>
+			<li>
+				<img class="etalage_thumb_image" src="demo_files/images/image2_thumb.jpg">
+				<img class="etalage_source_image" src="demo_files/images/image2_large.jpg">
+			</li>
+		</ul>
+
+		<a href="instructions.html">Back to instructions</a>
+		<br><br>
+		Change-callback in action.
+		<div id="alert">No change happened yet...</div>
+
+	</body>
+</html>

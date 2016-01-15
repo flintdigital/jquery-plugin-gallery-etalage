@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Etalage - Right to left example</title>
+		<link rel="stylesheet" href="css/etalage.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+		<script src="js/jquery.etalage.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('#etalage').etalage({
+					autoplay_interval: 2000,
+					align: 'right',
+					right_to_left: true
+				});
+			});
+		</script>
+		<style>
+			body{
+				margin: 50px;
+			}
+			#etalage{
+				margin-left: 50px;
+			}
+		</style>
+	</head>
+	<body dir="rtl">
+
+		<ul id="etalage">
+			<li>
+				<img class="etalage_thumb_image" src="demo_files/images/image1_thumb.jpg">
+				<img class="etalage_source_image" src="demo_files/images/image1_large.jpg" title="This description goes RTL too.">
+			</li>
+			<li>
+				<img class="etalage_thumb_image" src="demo_files/images/image2_thumb.jpg">
+				<img class="etalage_source_image" src="demo_files/images/image2_large.jpg">
+			</li>
+			<li>
+				<img class="etalage_thumb_image" src="demo_files/images/image3_thumb.jpg">
+				<img class="etalage_source_image" src="demo_files/images/image3_large.jpg">
+			</li>
+		</ul>
+
+		<a href="instructions.html">Back to instructions</a>
+		<br><br>
+		Example for right to left languages.<br>
+		The zoom area appears on the left and thumbnails move in opposite direction.
+
+	</body>
+</html>
